@@ -1,0 +1,36 @@
+services:
+    oai-nr-ue:
+        image: oaisoftwarealliance/oai-nr-ue:2023.w13
+        privileged: true
+        stdin_open: true
+        container_name: rfsim5g-oai-ue
+        cap_drop:
+            - ALL
+        cap_add:
+            - NET_ADMIN  # for interface bringup
+            - NET_RAW    # for ping
+            - SYS_NICE
+        entrypoint: /opt/oai-nr-ue/bin/nr-uesoftmodem -E -O /opt/oai-nr-ue/etc/ue.conf --rfsimulator.serveraddr 192.168.70.129 -r 106 --numerology 1 -E --band 78 -C 3619200000 --rfsim --sa --rx_gain 60 -r 52 --numerology 1 --log_config.global_log_options level,nocolor,time
+        networks:
+            public_net:
+              ipv4_address: 192.168.70.151
+        devices:
+             - /dev/net/tun:/dev/net/tun
+        volumes:
+          - ${PWD}/conf/ue.conf:/opt/oai-nr-ue/etc/ue.conf
+        healthcheck:
+            test: /bin/bash -c "pgrep nr-softmodem"
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+networks:
+    public_net:
+        driver: bridge
+        name: nric-net
+        external: true
+        ipam:
+            config:
+                - subnet: 192.168.70.128/26
+        driver_opts:
+            com.docker.network.bridge.name: "eth0"
