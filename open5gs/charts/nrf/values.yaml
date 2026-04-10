@@ -1,0 +1,13 @@
+# Default values for nrf
+
+image:
+  registry: docker.io
+  repository: flavioandrade/nrf
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+config: {}
+
+global:
+  containerPorts:
+    sbi: 80

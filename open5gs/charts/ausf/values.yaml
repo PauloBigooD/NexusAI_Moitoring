@@ -1,0 +1,13 @@
+# Default values for ausf
+
+image:
+  registry: docker.io
+  repository: flavioandrade/ausf
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+config: {}
+
+global:
+  containerPorts:
+    sbi: 80

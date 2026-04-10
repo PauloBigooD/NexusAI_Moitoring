@@ -1,0 +1,18 @@
+# Default values for webui
+
+image:
+  registry: docker.io
+  repository: flavioandrade/webui
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+services:
+  webui:
+    type: loadbalancer
+    loadBalancerIP: 172.31.0.141
+    provider: MetalLB
+    # nodePort: 30999
+
+global:
+  containerPorts:
+    webui: 9999

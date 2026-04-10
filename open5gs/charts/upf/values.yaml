@@ -1,0 +1,22 @@
+# Default values for upf
+
+image:
+  registry: docker.io
+  repository: flavioandrade/upf
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+services:
+  gtpu:
+    type: LoadBalancer
+    loadBalancerIP: 172.31.0.141
+    provider: MetalLB
+
+config: {}
+
+global:
+  mobileNetwork:
+    dataNetwork:
+      subnet: 10.45.0.0/16
+      gateway: 10.45.0.1
+      dnn: lance

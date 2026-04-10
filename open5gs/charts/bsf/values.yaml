@@ -1,0 +1,13 @@
+# Default values for bsf
+
+image:
+  registry: docker.io
+  repository: flavioandrade/bsf
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+config: {}
+
+global:
+  containerPorts:
+    sbi: 80

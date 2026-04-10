@@ -1,0 +1,14 @@
+# Default values for pcf
+
+image:
+  registry: docker.io
+  repository: flavioandrade/pcf
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+config: {}
+
+global:
+  containerPorts:
+    sbi: 80
+    db: 27017

@@ -1,0 +1,56 @@
+apiVersion: v2
+appVersion: v2.7.5
+dependencies:
+- condition: db.enabled
+  name: db
+  repository: file://../db
+  version: 0.3.3
+- condition: webui.enabled
+  name: webui
+  repository: file://../webui
+  version: 0.3.3
+- condition: nrf.enabled
+  name: nrf
+  repository: file://../nrf
+  version: 0.3.3
+- condition: ausf.enabled
+  name: ausf
+  repository: file://../ausf
+  version: 0.3.3
+- condition: bsf.enabled
+  name: bsf
+  repository: file://../bsf
+  version: 0.3.3
+- condition: nssf.enabled
+  name: nssf
+  repository: file://../nssf
+  version: 0.3.3
+- condition: pcf.enabled
+  name: pcf
+  repository: file://../pcf
+  version: 0.3.3
+- condition: udm.enabled
+  name: udm
+  repository: file://../udm
+  version: 0.3.3
+- condition: udr.enabled
+  name: udr
+  repository: file://../udr
+  version: 0.3.3
+- condition: amf.enabled
+  name: amf
+  repository: file://../amf
+  version: 0.3.3
+- condition: smf.enabled
+  name: smf
+  repository: file://../smf
+  version: 0.3.3
+- condition: upf.enabled
+  name: upf
+  repository: file://../upf
+  version: 0.3.3
+description: Open5GS deployment Helm chart
+icon: https://open5gs.org/assets/img/open5gs-logo.png
+name: open5gs
+type: application
+version: 0.3.4
